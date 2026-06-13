@@ -1,235 +1,565 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SKY BAKU — Resto-Bar & Steak House | Бишкек</title>
-<meta name="description" content="SKY BAKU Resto-Bar — азербайджанская и грузинская кухня на 6 этаже ТРБЦ ЕВРАЗИЯ. Панорамный вид на Бишкек. Хинкали, хачапури, стейки. Киевская 62, ежедневно 16:00–06:00.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a25;--accent:#c9a227;--accent-light:#e8c547;--text:#f0f0f5;--text-muted:#8a8a9a;--cream:#fff8e7;--radius:8px;--shadow:0 8px 32px rgba(0,0,0,0.4);--transition:0.4s ease}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-.section-label{display:inline-block;font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.section-title{font-size:clamp(32px,5vw,56px);color:var(--text);margin-bottom:16px;line-height:1.1;font-weight:600}
-.section-subtitle{color:var(--text-muted);font-size:15px;max-width:600px;margin-bottom:50px;line-height:1.7}
-section{padding:100px 0;position:relative}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:var(--transition);background:transparent}
-nav.scrolled{background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 20px rgba(0,0,0,0.3);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase}
-.nav-logo span{color:var(--text);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);transition:var(--transition);position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:var(--transition)}
-.nav-links a:hover{color:var(--accent)}.nav-links a:hover::after{width:100%}
-.nav-cta{background:var(--accent);color:var(--bg)!important;padding:10px 24px;border-radius:var(--radius);font-weight:600!important}
-.nav-cta::after{display:none!important}.nav-cta:hover{background:var(--accent-light)!important}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px}
-.burger span{width:26px;height:2px;background:var(--text);transition:var(--transition);border-radius:2px}
-.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.burger.active span:nth-child(2){opacity:0}
-.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,15,0.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px}
-.mobile-overlay.open{display:flex}
-.mobile-overlay a{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--text);transition:var(--transition)}
-.mobile-overlay a:hover{color:var(--accent)}.mobile-overlay a:last-child{color:var(--accent)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:80px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
-.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80') center/cover no-repeat;opacity:0.15;pointer-events:none}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--bg) 100%);pointer-events:none}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:800px}
-.hero-stars{color:var(--accent);font-size:14px;letter-spacing:6px;margin-bottom:20px}
-.hero-left h1{font-size:clamp(48px,8vw,88px);color:var(--text);margin-bottom:8px;line-height:1.05;font-weight:700;letter-spacing:4px;text-transform:uppercase}
-.hero-left h1 span{color:var(--accent);display:block;font-size:clamp(20px,3vw,32px);letter-spacing:8px;margin-top:8px;font-weight:400}
-.hero-left p{font-size:17px;color:var(--text-muted);margin-bottom:32px;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto}
-.hero-rating{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:36px;flex-wrap:wrap}
-.hero-rating-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-muted)}
-.hero-rating-item .stars{color:var(--accent);font-size:16px;letter-spacing:2px}
-.hero-rating-item strong{color:var(--text);font-size:16px;font-weight:600}
-.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;transition:var(--transition)}
-.btn-primary{background:var(--accent);color:var(--bg)}.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,39,0.25)}
-.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(240,240,245,0.15)}.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.hero-info{display:flex;gap:36px;margin-top:48px;justify-content:center;flex-wrap:wrap;padding:20px 0;border-top:1px solid rgba(240,240,245,0.08)}
-.hero-info-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-muted)}
-.hero-info-item strong{color:var(--text);font-weight:500}
-.status-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;margin-top:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);transition:var(--transition)}
-.status-badge.open{background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.25);color:#4ade80}
-.status-badge.closed{background:rgba(239,68,68,0.12);border-color:rgba(239,68,68,0.25);color:#f87171}
-.status-dot{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.about{background:var(--bg2)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.about-img{position:relative;border-radius:var(--radius);overflow:hidden;height:480px;box-shadow:var(--shadow)}
-.about-img img{width:100%;height:100%;object-fit:cover}
-.about-img::before{content:'';position:absolute;inset:0;border:1px solid var(--accent);border-radius:var(--radius);transform:translate(16px,16px);pointer-events:none;opacity:0.3}
-.about-text h2{margin-bottom:20px}
-.about-text p{color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:16px}
-.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.about-feature{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-muted)}
-.about-feature-icon{font-size:22px}
-.about-feature strong{color:var(--text);font-weight:500}
-.features{background:var(--bg)}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.feature-card{background:var(--bg2);border-radius:var(--radius);padding:36px 28px;transition:var(--transition);cursor:default;border:1px solid rgba(201,162,39,0.08);text-align:center}
-.feature-card:hover{transform:translateY(-6px);border-color:rgba(201,162,39,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
-.feature-icon{font-size:36px;margin-bottom:18px;display:block}
-.feature-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--text);margin-bottom:10px}
-.feature-card p{color:var(--text-muted);font-size:14px;line-height:1.7}
-.gallery{background:var(--bg2)}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.gallery-item{border-radius:var(--radius);overflow:hidden;height:260px;cursor:pointer;transition:var(--transition);position:relative}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
-.gallery-item:hover img{transform:scale(1.08)}
-.gallery-item:first-child{grid-column:1/3;grid-row:1/3;height:100%}
-.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,15,0.6) 100%);opacity:0;transition:var(--transition)}
-.gallery-item:hover::after{opacity:1}
-.menu{background:var(--bg)}
-.menu-tabs{display:flex;gap:10px;margin-bottom:40px;flex-wrap:wrap;justify-content:center}
-.menu-tab{padding:12px 28px;border-radius:50px;border:1px solid rgba(240,240,245,0.1);background:transparent;color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:var(--transition)}
-.menu-tab:hover{border-color:var(--accent);color:var(--accent)}
-.menu-tab.active{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
-.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:900px;margin:0 auto}
-.menu-item{background:var(--bg2);border-radius:var(--radius);padding:20px 24px;transition:var(--transition);cursor:default;border:1px solid rgba(240,240,245,0.05)}
-.menu-item:hover{border-color:rgba(201,162,39,0.15);transform:translateX(4px)}
-.menu-item-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-.menu-item-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text)}
-.menu-item-cat{font-size:11px;color:var(--accent);font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.menu-item-desc{color:var(--text-muted);font-size:13px;line-height:1.6}
-.menu-item-price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--accent);font-weight:600}
-.events{background:var(--bg2)}
-.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.event-card{background:var(--bg);border-radius:var(--radius);overflow:hidden;transition:var(--transition);border:1px solid rgba(240,240,245,0.05)}
-.event-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.event-img{height:200px;overflow:hidden}.event-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
-.event-card:hover .event-img img{transform:scale(1.05)}
-.event-body{padding:28px}.event-body h3{font-size:24px;margin-bottom:10px}.event-body p{color:var(--text-muted);font-size:14px;line-height:1.7}
-.reviews{background:var(--bg)}
-.reviews-carousel{position:relative;overflow:hidden;max-width:800px;margin:0 auto}
-.reviews-track{display:flex;transition:transform 0.6s ease}
-.review-card{min-width:100%;padding:0 20px;text-align:center}
-.review-card-icon{font-size:48px;color:var(--accent);opacity:0.25;margin-bottom:20px;display:block;font-family:serif}
-.review-text{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,28px);font-style:italic;color:var(--text);line-height:1.6;margin-bottom:20px}
-.review-stars{color:var(--accent);font-size:20px;letter-spacing:3px;margin-bottom:12px}
-.review-author{font-size:14px;color:var(--text-muted)}.review-author strong{color:var(--text);font-weight:500}
-.reviews-dots{display:flex;justify-content:center;gap:12px;margin-top:32px}
-.review-dot{width:10px;height:10px;border-radius:50%;background:rgba(240,240,245,0.12);border:none;cursor:pointer;transition:var(--transition)}
-.review-dot.active{background:var(--accent);width:32px;border-radius:5px}
-.booking{background:var(--bg2)}
-.booking-form{max-width:600px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.booking-form .full{grid-column:1/-1}
-.form-group label{display:block;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;background:var(--bg);border:1px solid rgba(240,240,245,0.08);border-radius:var(--radius);color:var(--text);font-family:'Montserrat',sans-serif;font-size:14px;outline:none;transition:var(--transition)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,162,39,0.08)}
-.form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a8a9a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
-.form-group textarea{resize:vertical;min-height:100px}
-.btn-submit{grid-column:1/-1;padding:16px;background:var(--accent);color:var(--bg);border:none;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:var(--transition)}
-.btn-submit:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,39,0.2)}
-.booking-success{display:none;text-align:center;grid-column:1/-1;padding:40px}.booking-success.show{display:block}
-.booking-success-icon{font-size:48px;margin-bottom:14px}.booking-success h3{font-size:32px;color:var(--text);margin-bottom:8px;font-family:'Cormorant Garamond',serif}.booking-success p{color:var(--text-muted)}
-.contacts{background:var(--bg)}
-.contacts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.contact-card{background:var(--bg2);border-radius:var(--radius);padding:32px 24px;text-align:center;border:1px solid rgba(240,240,245,0.05);transition:var(--transition)}
-.contact-card:hover{border-color:rgba(201,162,39,0.15);transform:translateY(-4px)}
-.contact-icon{font-size:32px;margin-bottom:14px}
-.contact-card h4{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text);margin-bottom:6px}
-.contact-card p{color:var(--text-muted);font-size:14px;line-height:1.6}
-.contact-card a{color:var(--accent);transition:var(--transition)}.contact-card a:hover{color:var(--accent-light)}
-.map{background:var(--bg2);padding-bottom:0}
-.map-wrapper{border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;height:400px;box-shadow:var(--shadow)}
-.map-wrapper iframe{width:100%;height:100%;border:0;filter:grayscale(0.6) contrast(1.1)}
-footer{background:#050508;padding:70px 0 0;color:var(--text-muted)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
-.footer-brand .nav-logo{color:var(--accent);font-size:24px}.footer-brand .nav-logo span{color:var(--text-muted)}
-.footer-brand p{color:var(--text-muted);font-size:14px;margin:16px 0 24px;line-height:1.7;max-width:320px}
-.footer-social{display:flex;gap:12px}
-.footer-social a{width:44px;height:44px;border-radius:50%;background:rgba(240,240,245,0.05);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--text-muted);transition:var(--transition);text-decoration:none;border:1px solid rgba(240,240,245,0.08)}
-.footer-social a:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
-.footer-col h4{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text);margin-bottom:20px}
-.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{font-size:14px;color:var(--text-muted);transition:var(--transition)}
-.footer-col ul li a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid rgba(240,240,245,0.06);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-bottom p{font-size:13px;color:var(--text-muted)}
-.footer-bottom a{color:var(--text-muted);transition:var(--transition)}.footer-bottom a:hover{color:var(--accent)}
-.mobile-actions{display:none;position:fixed;bottom:0;left:0;right:0;z-index:1001;padding:10px 12px 24px;background:linear-gradient(0deg,var(--bg) 60%,transparent);gap:8px}
-.mobile-actions .mob-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px 6px;border-radius:12px;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:var(--transition);text-decoration:none;color:#fff}
-.mobile-actions .mob-btn .mob-emoji{font-size:22px;line-height:1}
-.mobile-actions .mob-wa{background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
-.mobile-actions .mob-wa:active{background:#1ebe57;transform:scale(0.96)}
-.mobile-actions .mob-call{background:var(--accent);color:var(--bg)!important;box-shadow:0 4px 16px rgba(201,162,39,0.3)}
-.mobile-actions .mob-call:active{background:var(--accent-light);transform:scale(0.96)}
-.mobile-actions .mob-book{background:var(--bg2);border:1px solid rgba(240,240,245,0.12);color:var(--text)!important;box-shadow:0 4px 16px rgba(0,0,0,0.3)}
-.mobile-actions .mob-book:active{background:var(--bg3);transform:scale(0.96)}
-.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-@media(max-width:1024px){
-.about-grid{grid-template-columns:1fr;gap:40px}.about-img{height:360px}
-.features-grid{grid-template-columns:repeat(2,1fr)}
-.gallery-grid{grid-template-columns:repeat(2,1fr)}
-.gallery-item:first-child{grid-column:auto;grid-row:auto;height:260px}
-.events-grid{grid-template-columns:repeat(2,1fr)}
-.contacts-grid{grid-template-columns:repeat(2,1fr)}
-.footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-.nav-links{display:none}.burger{display:flex}section{padding:70px 0}
-.hero{min-height:auto;padding:120px 0 80px}
-.hero-left h1{font-size:42px}.hero-left h1 span{font-size:18px}
-.features-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}
-.gallery-item{height:220px!important}
-.menu-grid{grid-template-columns:1fr}.events-grid{grid-template-columns:1fr}
-.contacts-grid{grid-template-columns:1fr}.booking-form{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr;text-align:center}
-.footer-social{justify-content:center}.footer-brand p{margin:16px auto 24px}
-.mobile-actions{display:flex}
-body{padding-bottom:86px}
-}
-@media(max-width:480px){
-.hero-left h1{font-size:36px}.hero-info{flex-direction:column;gap:10px;align-items:center}
-.menu-tabs{justify-content:center}
-.mobile-actions .mob-btn{font-size:10px;padding:10px 4px}
-.mobile-actions .mob-btn .mob-emoji{font-size:20px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKY BAKU — Resto-Bar & Steak House | Бишкек</title>
+    <meta name="description" content="SKY BAKU — азербайджанская и грузинская кухня на 6 этаже ТРБЦ ЕВРАЗИЯ. Панорамный вид на Бишкек. Хинкали, хачапури, стейки. Киевская 62, ежедневно 16:00–06:00.">
+    <meta name="keywords" content="SKY BAKU, Скай Баку, ресторан Бишкек, азербайджанская кухня, грузинская кухня, хинкали, хачапури, стейк хаус, Киевская 62">
+    <meta property="og:title" content="SKY BAKU — Resto-Bar & Steak House">
+    <meta property="og:description" content="Азербайджанская и грузинская кухня на высоте птичьего полёта. Панорамный вид на Бишкек.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skybaku.kg">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%231a0f0a'/%3E%3Ctext x='600' y='315' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='64' fill='%23d4a853'%3ESKY BAKU%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        palace: {
+                            50: '#fdf8f0', 100: '#f9eddc', 200: '#f2d7b3', 300: '#e8bc80',
+                            400: '#dd9d4d', 500: '#d4a853', 600: '#b8862e', 700: '#9a6b24',
+                            800: '#7d5621', 900: '#68471e', 950: '#1a0f0a',
+                        },
+                        burgundy: {
+                            50: '#fdf2f4', 100: '#fce7ea', 200: '#f9d0d9', 300: '#f4a9ba',
+                            400: '#ec7894', 500: '#db4d72', 600: '#c72e5a', 700: '#a8204a',
+                            800: '#8d1d41', 900: '#791c3c', 950: '#3d0a1b',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Times New Roman', 'serif'],
+                        display: ['"Palatino Linotype"', 'Palatino', 'Georgia', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.85)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        glow: {
+                            '0%': { textShadow: '0 0 10px rgba(212, 168, 83, 0.3), 0 0 20px rgba(212, 168, 83, 0.1)' },
+                            '100%': { textShadow: '0 0 20px rgba(212, 168, 83, 0.5), 0 0 40px rgba(212, 168, 83, 0.2), 0 0 60px rgba(212, 168, 83, 0.1)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #0f0806;
+            color: #f5f0e8;
+            overflow-x: hidden;
+        }
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0806 0%, #1a0f0a 30%, #2d1810 60%, #1a0f0a 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(183, 110, 50, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(212, 168, 83, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(212, 168, 83, 0.02) 80px, rgba(212, 168, 83, 0.02) 81px),
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(212, 168, 83, 0.02) 80px, rgba(212, 168, 83, 0.02) 81px);
+            pointer-events: none;
+        }
+        .ornament { font-size: 2rem; color: #d4a853; opacity: 0.4; letter-spacing: 1rem; user-select: none; }
+        .gold-line { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, #d4a853, transparent); margin: 1.5rem auto; }
+        .gold-line-wide { width: 160px; height: 1px; background: linear-gradient(90deg, transparent, #d4a853, transparent); margin: 1rem auto; }
+        .particle {
+            position: absolute; width: 3px; height: 3px; background: #d4a853; border-radius: 50%;
+            opacity: 0; animation: floatUp 6s ease-in infinite;
+        }
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(100vh) translateX(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateY(-10vh) translateX(50px); }
+        }
+        .section-title { font-family: 'Palatino Linotype', Palatino, Georgia, serif; font-size: 2.5rem; color: #d4a853; text-align: center; letter-spacing: 0.15em; text-transform: uppercase; }
+        @media (max-width: 768px) { .section-title { font-size: 1.8rem; } }
+        .feature-card, .menu-card {
+            background: linear-gradient(145deg, rgba(26, 15, 10, 0.8), rgba(45, 24, 16, 0.6));
+            border: 1px solid rgba(212, 168, 83, 0.15); border-radius: 12px; padding: 2rem;
+            transition: all 0.4s ease; backdrop-filter: blur(4px);
+        }
+        .feature-card:hover, .menu-card:hover {
+            border-color: rgba(212, 168, 83, 0.4); transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(212, 168, 83, 0.05);
+        }
+        .review-card {
+            background: linear-gradient(135deg, rgba(26, 15, 10, 0.9), rgba(45, 24, 16, 0.7));
+            border: 1px solid rgba(212, 168, 83, 0.12); border-radius: 16px; padding: 2rem; position: relative;
+        }
+        .review-card::before {
+            content: '\201C'; position: absolute; top: -10px; left: 20px;
+            font-size: 5rem; color: rgba(212, 168, 83, 0.15); font-family: Georgia, serif; line-height: 1;
+        }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(212, 168, 83, 0.08); }
+        .menu-item:last-child { border-bottom: none; }
+        .mobile-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(15, 8, 6, 0.95); backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(212, 168, 83, 0.2); padding: 0.75rem 1rem;
+            display: flex; gap: 0.75rem; z-index: 50;
+        }
+        @media (max-width: 768px) { body { padding-bottom: 80px; } }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .btn-gold { background: linear-gradient(135deg, #d4a853, #b8862e); color: #1a0f0a; font-weight: 600; transition: all 0.3s ease; border: none; }
+        .btn-gold:hover { background: linear-gradient(135deg, #e0b860, #c99530); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.3); }
+        .btn-outline-gold { background: transparent; border: 1px solid rgba(212, 168, 83, 0.4); color: #d4a853; transition: all 0.3s ease; }
+        .btn-outline-gold:hover { background: rgba(212, 168, 83, 0.1); border-color: #d4a853; transform: translateY(-2px); }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding: 1rem 0; transition: all 0.3s ease; background: transparent; }
+        .navbar.scrolled { background: rgba(15, 8, 6, 0.92); backdrop-filter: blur(12px); padding: 0.6rem 0; border-bottom: 1px solid rgba(212, 168, 83, 0.1); }
+        .star { color: #f5b342; font-size: 1.1rem; }
+        .map-container { width: 100%; height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212, 168, 83, 0.15); }
+        .map-container iframe { width: 100%; height: 100%; filter: grayscale(0.8) invert(0.9) hue-rotate(180deg); }
+        .insta-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #d4a853; text-decoration: none; transition: color 0.3s; }
+        .insta-link:hover { color: #e8bc80; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0806; }
+        ::-webkit-scrollbar-thumb { background: rgba(212, 168, 83, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212, 168, 83, 0.5); }
+    </style>
 </head>
 <body>
-<nav id="nav"><div class="nav-inner"><a href="#" class="nav-logo">SKY<span>BAKU</span></a><ul class="nav-links"><li><a href="#about">О нас</a></li><li><a href="#features">Почему мы</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#menu">Меню</a></li><li><a href="#events">Мероприятия</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#booking" class="nav-cta">Забронировать</a></li></ul><div class="burger" id="burger"><span></span><span></span><span></span></div></div></nav>
-<div class="mobile-overlay" id="mobileOverlay"><a href="#about" class="mobile-link">О нас</a><a href="#features" class="mobile-link">Почему мы</a><a href="#gallery" class="mobile-link">Галерея</a><a href="#menu" class="mobile-link">Меню</a><a href="#events" class="mobile-link">Мероприятия</a><a href="#reviews" class="mobile-link">Отзывы</a><a href="#booking" class="mobile-link" style="color:var(--accent)">Забронировать</a></div>
-<section class="hero" id="hero"><div class="container hero-content"><div class="hero-stars">✦ ✦ ✦</div><h1>SKY<br><span>BAKU</span></h1><p>Азербайджанская и грузинская кухня на высоте птичьего полёта. Панорамный вид на Бишкек, авторские блюда и атмосфера восточного гостеприимства.</p><div class="hero-rating"><div class="hero-rating-item"><span class="stars">★★★★★</span> <strong>4.2</strong> 2ГИС (1 922 оценки)</div><div class="hero-rating-item"><span class="stars">★★★★★</span> <strong>4.3</strong> Google Maps (668 отзывов)</div></div><div id="statusBadge" class="status-badge"><span class="status-dot"></span><span id="statusText">Загрузка...</span></div><div class="hero-buttons"><a href="#booking" class="btn btn-primary">Забронировать столик</a><a href="#menu" class="btn btn-outline">Меню</a></div><div class="hero-info"><div class="hero-info-item">📍 <strong>ТРБЦ ЕВРАЗИЯ</strong> Киевская 62, 6 этаж</div><div class="hero-info-item">🕐 <strong>Ежедневно</strong> 16:00 – 06:00</div><div class="hero-info-item">📞 <strong>+996 550 996 996</strong></div></div></div></section>
-<section class="about" id="about"><div class="container"><div class="about-grid"><div class="about-img fade-up"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Интерьер SKY BAKU" loading="lazy"></div><div class="about-text"><div class="section-label fade-up">О нас</div><h2 class="section-title fade-up">Добро пожаловать<br>в SKY BAKU</h2><p class="fade-up">SKY BAKU — это изысканный resto-bar и steak house на 6 этаже торгового центра ЕВРАЗИЯ в самом сердце Бишкека. Наше название отражает суть: SKY — бескрайний вид на город с высоты, BAKU — дух азербайджанской кухни и восточного гостеприимства.</p><p class="fade-up">Мы объединяем лучшие традиции азербайджанской и грузинской кухни: хинкали ручной лепки, хачапури по-аджарски, сочные стейки и баклажаны в кисло-сладком соусе. Каждое блюдо — это история, рассказанная через вкус.</p><div class="about-features fade-up"><div class="about-feature"><span class="about-feature-icon">🥂</span><strong>Банкеты</strong></div><div class="about-feature"><span class="about-feature-icon">💍</span><strong>Свадьбы</strong></div><div class="about-feature"><span class="about-feature-icon">📋</span><strong>Конференции</strong></div><div class="about-feature"><span class="about-feature-icon">🎉</span><strong>Торжества</strong></div></div></div></div></div></section>
-<section class="features" id="features"><div class="container"><div class="section-label fade-up">Преимущества</div><h2 class="section-title fade-up">Почему выбирают нас</h2><p class="section-subtitle fade-up">Каждая деталь продумана для вашего комфорта и незабываемых впечатлений</p><div class="features-grid"><div class="feature-card fade-up"><span class="feature-icon">🌃</span><h3>Панорамный вид</h3><p>6 этаж с панорамным видом на весь Бишкек. Вечерний город за окном создаёт романтику и атмосферу.</p></div><div class="feature-card fade-up"><span class="feature-icon">👨‍🍳</span><h3>Шеф-повар</h3><p>Авторские блюда от шеф-повара. Традиционные рецепты с современной подачей.</p></div><div class="feature-card fade-up"><span class="feature-icon">🍖</span><h3>Стейки и мясо</h3><p>Стейк-хаус уровня. Сочные мясные деликатесы, приготовленные на открытом огне.</p></div><div class="feature-card fade-up"><span class="feature-icon">🥟</span><h3>Хинкали и хачапури</h3><p>Аутентичная грузинская кухня: хинкали ручной лепки, хачапури по-аджарски.</p></div><div class="feature-card fade-up"><span class="feature-icon">🍆</span><h3>Баклажаны</h3><p>Фирменные баклажаны в кисло-сладком соусе — визитная карточка заведения.</p></div><div class="feature-card fade-up"><span class="feature-icon">🌙</span><h3>До утра</h3><p>Работаем до 6 утра. Идеально для вечерних посиделок, ночных банкетов и after-party.</p></div></div></div></section>
-<section class="gallery" id="gallery"><div class="container"><div class="section-label fade-up">Галерея</div><h2 class="section-title fade-up">Атмосфера SKY BAKU</h2><p class="section-subtitle fade-up">Вид на город, интерьер и моменты, которые остаются в памяти</p><div class="gallery-grid"><div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" alt="Бар" loading="lazy"></div><div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Интерьер" loading="lazy"></div><div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Стейк" loading="lazy"></div><div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Блюдо" loading="lazy"></div><div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Десерт" loading="lazy"></div></div></div></section>
-<section class="menu" id="menu"><div class="container"><div class="section-label fade-up">Меню</div><h2 class="section-title fade-up">Наше меню</h2><p class="section-subtitle fade-up">Азербайджанская и грузинская кухня, приготовленная с душой</p><div class="menu-tabs fade-up"><button class="menu-tab active" data-tab="georgian">Грузинская</button><button class="menu-tab" data-tab="azerbaijan">Азербайджанская</button><button class="menu-tab" data-tab="steak">Стейки</button><button class="menu-tab" data-tab="salad">Салаты</button><button class="menu-tab" data-tab="drinks">Напитки</button></div><div class="menu-grid" id="menuGrid"><div class="menu-item" data-cat="georgian"><div class="menu-item-cat">Грузинская кухня</div><div class="menu-item-header"><span class="menu-item-name">Хинкали</span></div><p class="menu-item-desc">Традиционные грузинские хинкали ручной лепки с сочной начинкой</p></div><div class="menu-item" data-cat="georgian"><div class="menu-item-cat">Грузинская кухня</div><div class="menu-item-header"><span class="menu-item-name">Хачапури по-аджарски</span></div><p class="menu-item-desc">Лодочка из теста с расплавленным сыром и яйцом</p></div><div class="menu-item" data-cat="georgian"><div class="menu-item-cat">Грузинская кухня</div><div class="menu-item-header"><span class="menu-item-name">Хачапури по-мегрельски</span></div><p class="menu-item-desc">Круглый хачапури с сыром внутри и снаружи</p></div><div class="menu-item" data-cat="georgian"><div class="menu-item-cat">Грузинская кухня</div><div class="menu-item-header"><span class="menu-item-name">Чахохбили</span></div><p class="menu-item-desc">Курица тушёная с томатами, перцем и зеленью</p></div><div class="menu-item" data-cat="azerbaijan" style="display:none"><div class="menu-item-cat">Азербайджанская кухня</div><div class="menu-item-header"><span class="menu-item-name">Баклажаны в кисло-сладком соусе</span></div><p class="menu-item-desc">Фирменное блюдо — нежные баклажаны с особым соусом</p></div><div class="menu-item" data-cat="azerbaijan" style="display:none"><div class="menu-item-cat">Азербайджанская кухня</div><div class="menu-item-header"><span class="menu-item-name">Долма</span></div><p class="menu-item-desc">Виноградные листья с мясным фаршем и рисом</p></div><div class="menu-item" data-cat="azerbaijan" style="display:none"><div class="menu-item-cat">Азербайджанская кухня</div><div class="menu-item-header"><span class="menu-item-name">Люля-кебаб</span></div><p class="menu-item-desc">Мясной рулет на шампуре, приготовленный на углях</p></div><div class="menu-item" data-cat="azerbaijan" style="display:none"><div class="menu-item-cat">Азербайджанская кухня</div><div class="menu-item-header"><span class="menu-item-name">Плов</span></div><p class="menu-item-desc">Ароматный плов с бараниной, сухофруктами и зирой</p></div><div class="menu-item" data-cat="steak" style="display:none"><div class="menu-item-cat">Стейки</div><div class="menu-item-header"><span class="menu-item-name">Рибай</span></div><p class="menu-item-desc">Мраморная говядина с насыщенным вкусом</p></div><div class="menu-item" data-cat="steak" style="display:none"><div class="menu-item-cat">Стейки</div><div class="menu-item-header"><span class="menu-item-name">Стриплойн</span></div><p class="menu-item-desc">Нежный стейк из поясничной части</p></div><div class="menu-item" data-cat="steak" style="display:none"><div class="menu-item-cat">Стейки</div><div class="menu-item-header"><span class="menu-item-name">Филе миньон</span></div><p class="menu-item-desc">Самая нежная часть вырезки</p></div><div class="menu-item" data-cat="steak" style="display:none"><div class="menu-item-cat">Стейки</div><div class="menu-item-header"><span class="menu-item-name">Томагавк</span></div><p class="menu-item-desc">Импрессивный стейк на кости для компании</p></div><div class="menu-item" data-cat="salad" style="display:none"><div class="menu-item-cat">Салаты</div><div class="menu-item-header"><span class="menu-item-name">Тбилисский салат</span></div><p class="menu-item-desc">Овощной салат с грецким орехом и винной заправкой</p></div><div class="menu-item" data-cat="salad" style="display:none"><div class="menu-item-cat">Салаты</div><div class="menu-item-header"><span class="menu-item-name">Салат с баклажанами</span></div><p class="menu-item-desc">Запечённые баклажаны с помидорами и сыром</p></div><div class="menu-item" data-cat="salad" style="display:none"><div class="menu-item-cat">Салаты</div><div class="menu-item-header"><span class="menu-item-name">Оливье по-особому</span></div><p class="menu-item-desc">Классический салат с авторской подачей</p></div><div class="menu-item" data-cat="salad" style="display:none"><div class="menu-item-cat">Салаты</div><div class="menu-item-header"><span class="menu-item-name">Свежие овощи</span></div><p class="menu-item-desc">Ассорти из сезонных овощей с зеленью</p></div><div class="menu-item" data-cat="drinks" style="display:none"><div class="menu-item-cat">Напитки</div><div class="menu-item-header"><span class="menu-item-name">Айран</span></div><p class="menu-item-desc">Традиционный кисломолочный напиток</p></div><div class="menu-item" data-cat="drinks" style="display:none"><div class="menu-item-cat">Напитки</div><div class="menu-item-header"><span class="menu-item-name">Тархун</span></div><p class="menu-item-desc">Грузинский лимонад с экстрактом тархуна</p></div><div class="menu-item" data-cat="drinks" style="display:none"><div class="menu-item-cat">Напитки</div><div class="menu-item-header"><span class="menu-item-name">Авторские коктейли</span></div><p class="menu-item-desc">Коктейли от бармена с панорамным видом</p></div><div class="menu-item" data-cat="drinks" style="display:none"><div class="menu-item-cat">Напитки</div><div class="menu-item-header"><span class="menu-item-name">Винная карта</span></div><p class="menu-item-desc">Подборка грузинских и азербайджанских вин</p></div></div></div></section>
-<section class="events" id="events"><div class="container"><div class="section-label fade-up">Мероприятия</div><h2 class="section-title fade-up">Проведите событие<br>в SKY BAKU</h2><p class="section-subtitle fade-up">Просторный зал, панорамный вид и внимательный сервис для вашего торжества</p><div class="events-grid"><div class="event-card fade-up"><div class="event-img"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" alt="Свадьба" loading="lazy"></div><div class="event-body"><h3>Свадьбы</h3><p>Идеальное место для самого важного дня. Романтическая атмосфера, банкетное меню и вид на ночной город.</p></div></div><div class="event-card fade-up"><div class="event-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Конференция" loading="lazy"></div><div class="event-body"><h3>Конференции</h3><p>Просторный зал, удобная рассадка, полный catering. Всё для деловых мероприятий и семинаров.</p></div></div><div class="event-card fade-up"><div class="event-img"><img src="https://images.unsplash.com/photo-1530103862676-de3c9a59aa38?w=600&q=80" alt="Банкет" loading="lazy"></div><div class="event-body"><h3>Банкеты</h3><p>Дни рождения, юбилеи, корпоративы. Индивидуальное меню, праздничная сервировка, живая музыка.</p></div></div></div></div></section>
-<section class="reviews" id="reviews"><div class="container"><div class="section-label fade-up">Отзывы</div><h2 class="section-title fade-up">Наши гости</h2><div class="reviews-carousel fade-up"><div class="reviews-track" id="reviewsTrack"><div class="review-card"><span class="review-card-icon">&#10078;</span><p class="review-text">Amazing rooftop view, amazing food and cocktails. Service a bit slow, but the atmosphere and taste are worth it.</p><div class="review-stars">★★★★★</div><p class="review-author"><strong>Elliot Gooley</strong> — Google Maps</p></div><div class="review-card"><span class="review-card-icon">&#10078;</span><p class="review-text">Весело, хорошая кухня. Отличное место для вечера с друзьями — вид на город просто потрясающий.</p><div class="review-stars">★★★★★</div><p class="review-author"><strong>Антонина Рунец</strong> — Yandex Maps</p></div><div class="review-card"><span class="review-card-icon">&#10078;</span><p class="review-text">Еда на высшем уровне. Абсолютно всё понравилось. Хинкали и хачапури — лучшие в городе.</p><div class="review-stars">★★★★★</div><p class="review-author"><strong>Гость 2ГИС</strong> — 2ГИС</p></div></div></div><div class="reviews-dots fade-up"><button class="review-dot active" data-index="0"></button><button class="review-dot" data-index="1"></button><button class="review-dot" data-index="2"></button></div></div></section>
-<section class="booking" id="booking"><div class="container"><div class="section-label fade-up">Бронирование</div><h2 class="section-title fade-up">Забронировать столик</h2><p class="section-subtitle fade-up">Заполните форму, и мы свяжемся с вами для подтверждения</p><form class="booking-form" id="bookingForm"><div class="form-group fade-up"><label>Ваше имя</label><input type="text" placeholder="Имя" required></div><div class="form-group fade-up"><label>Телефон</label><input type="tel" placeholder="+996 XXX XXX XXX" required></div><div class="form-group fade-up"><label>Дата</label><input type="date" required></div><div class="form-group fade-up"><label>Время</label><input type="time" required></div><div class="form-group fade-up"><label>Количество гостей</label><select required><option value="">Выберите</option><option>1 гость</option><option>2 гостя</option><option>3 гостя</option><option>4 гостя</option><option>5 гостей</option><option>6+ гостей</option></select></div><div class="form-group fade-up"><label>Тип мероприятия</label><select><option value="">Ужин</option><option>Банкет</option><option>Свадьба</option><option>День рождения</option><option>Конференция</option><option>Другое</option></select></div><div class="form-group full fade-up"><label>Пожелания</label><textarea placeholder="Особые пожелания..." style="min-height:80px"></textarea></div><button type="submit" class="btn-submit fade-up">Отправить заявку</button><div class="booking-success" id="bookingSuccess"><div class="booking-success-icon">✅</div><h3>Спасибо!</h3><p>Мы свяжемся с вами в ближайшее время.</p></div></form></div></section>
-<section class="contacts" id="contacts"><div class="container"><div class="section-label fade-up">Контакты</div><h2 class="section-title fade-up">Свяжитесь с нами</h2><div class="contacts-grid"><div class="contact-card fade-up"><div class="contact-icon">🗺️</div><h4>Адрес</h4><p>ТРБЦ ЕВРАЗИЯ<br>Киевская ул., 62<br>Бишкек, 6 этаж</p></div><div class="contact-card fade-up"><div class="contact-icon">📲</div><h4>Телефоны</h4><p><a href="tel:+996550996996">+996 550 996 996</a><br><a href="tel:+996558398168">+996 558 39 81 68</a></p></div><div class="contact-card fade-up"><div class="contact-icon">⏰</div><h4>Часы работы</h4><p>Ежедневно<br>16:00 – 06:00</p></div><div class="contact-card fade-up"><div class="contact-icon">📸</div><h4>Instagram</h4><p><a href="https://instagram.com/sky.baku.restobar.kg" target="_blank">@sky.baku.restobar.kg</a></p></div></div></div></section>
-<section class="map" id="map"><div class="container"><div class="map-wrapper fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.8!2d74.6119!3d42.8741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1sen!2skg!4v1" allowfullscreen="" loading="lazy"></iframe></div></div></section>
-<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="#" class="nav-logo">SKY<span>BAKU</span></a><p>Азербайджанская и грузинская кухня на высоте птичьего полёта. Панорамный вид, авторские блюда и атмосфера восточного гостеприимства.</p><div class="footer-social"><a href="https://instagram.com/sky.baku.restobar.kg" target="_blank" aria-label="Instagram">📸</a><a href="#" target="_blank" aria-label="Facebook">📘</a><a href="#" target="_blank" aria-label="Telegram">✈️</a></div></div><div class="footer-col"><h4>Навигация</h4><ul><li><a href="#about">О нас</a></li><li><a href="#features">Почему мы</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#menu">Меню</a></li><li><a href="#events">Мероприятия</a></li><li><a href="#reviews">Отзывы</a></li></ul></div><div class="footer-col"><h4>Контакты</h4><ul><li><a href="tel:+996550996996">+996 550 996 996</a></li><li><a href="tel:+996558398168">+996 558 39 81 68</a></li><li><a href="https://maps.google.com/?q=EURASIA+Kievskaya+62+Bishkek" target="_blank">Киевская 62, 6 этаж</a></li></ul></div><div class="footer-col"><h4>Режим</h4><ul><li><a href="#">Ежедневно</a></li><li><a href="#">16:00 – 06:00</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 SKY BAKU. Все права защищены.</p><p>Сайт разработан <a href="https://fountaine.ai" target="_blank">Fountaine AI Studio</a></p></div></div></footer>
-<div class="mobile-actions" id="mobileActions"><a href="https://wa.me/996550996996" target="_blank" class="mob-btn mob-wa"><span class="mob-emoji">💬</span>WhatsApp</a><a href="tel:+996550996996" class="mob-btn mob-call"><span class="mob-emoji">📞</span>Позвонить</a><a href="#booking" class="mob-btn mob-book"><span class="mob-emoji">📅</span>Забронировать</a></div>
+
+<div id="particles"></div>
+
+<nav class="navbar" id="navbar">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+        <a href="#hero" class="text-xl text-[#d4a853] font-serif tracking-wider">SKY BAKU</a>
+        <div class="hidden md:flex items-center gap-8 text-sm">
+            <a href="#about" class="text-gray-400 hover:text-[#d4a853] transition-colors tracking-wider uppercase">О нас</a>
+            <a href="#menu" class="text-gray-400 hover:text-[#d4a853] transition-colors tracking-wider uppercase">Меню</a>
+            <a href="#events" class="text-gray-400 hover:text-[#d4a853] transition-colors tracking-wider uppercase">Мероприятия</a>
+            <a href="#reviews" class="text-gray-400 hover:text-[#d4a853] transition-colors tracking-wider uppercase">Отзывы</a>
+            <a href="#contact" class="text-gray-400 hover:text-[#d4a853] transition-colors tracking-wider uppercase">Контакты</a>
+            <a href="#booking" class="btn-gold px-5 py-2 rounded-full text-sm tracking-wider">Забронировать</a>
+        </div>
+        <button id="menuToggle" class="md:hidden text-[#d4a853] text-2xl">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-4 pt-4 pb-6 space-y-3">
+        <a href="#about" class="block text-gray-400 hover:text-[#d4a853]">О нас</a>
+        <a href="#menu" class="block text-gray-400 hover:text-[#d4a853]">Меню</a>
+        <a href="#events" class="block text-gray-400 hover:text-[#d4a853]">Мероприятия</a>
+        <a href="#reviews" class="block text-gray-400 hover:text-[#d4a853]">Отзывы</a>
+        <a href="#contact" class="block text-gray-400 hover:text-[#d4a853]">Контакты</a>
+        <a href="#booking" class="block btn-gold text-center px-5 py-2 rounded-full">Забронировать</a>
+    </div>
+</nav>
+
+<section class="hero" id="hero">
+    <div class="hero-pattern"></div>
+    <div class="relative z-10 text-center px-4 max-w-4xl">
+        <div class="ornament mb-6">✦ ✦ ✦</div>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-display text-[#d4a853] tracking-[0.15em] mb-4 animate-fade-in" style="animation-delay: 0.2s; opacity: 0;">
+            SKY<br><span class="text-2xl md:text-3xl lg:text-4xl tracking-[0.3em] text-gray-400">BAKU</span>
+        </h1>
+        <div class="gold-line mb-6"></div>
+        <p class="text-lg md:text-xl text-gray-300 font-light tracking-wide mb-8 animate-fade-in" style="animation-delay: 0.6s; opacity: 0;">
+            Resto-Bar & Steak House с панорамным видом на Бишкек
+        </p>
+        <div class="flex items-center justify-center gap-3 mb-8 animate-fade-in" style="animation-delay: 0.8s; opacity: 0;">
+            <span class="star">★</span>
+            <span class="text-[#d4a853] font-semibold text-lg">4.2</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-gray-400">1 922 оценки 2ГИС</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-[#d4a853] font-semibold text-lg">4.3</span>
+            <span class="text-gray-400">Google Maps</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay: 1s; opacity: 0;">
+            <a href="#booking" class="btn-gold px-8 py-3 rounded-full text-base tracking-wider">Забронировать столик</a>
+            <a href="#menu" class="btn-outline-gold px-8 py-3 rounded-full text-base tracking-wider">Меню</a>
+            <a href="#contact" class="btn-outline-gold px-8 py-3 rounded-full text-base tracking-wider">Связаться</a>
+        </div>
+        <div class="mt-10 text-sm text-gray-500 tracking-wide animate-fade-in" style="animation-delay: 1.2s; opacity: 0;">
+            ТРБЦ ЕВРАЗИЯ, Киевская 62, 6 этаж · Ежедневно 16:00–06:00
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-20 md:py-28 px-4" style="background: linear-gradient(180deg, #0f0806 0%, #1a0f0a 50%, #0f0806 100%);">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <p class="text-center text-[#d4a853] text-sm tracking-[0.3em] uppercase mb-2">Добро пожаловать</p>
+            <h2 class="section-title mb-4">О SKY BAKU</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+            <div class="reveal reveal-delay-1 space-y-6">
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    <span class="text-[#d4a853] font-semibold">SKY BAKU</span> — это изысканный resto-bar и steak house на 6 этаже торгового центра ЕВРАЗИЯ в самом сердце Бишкека, где каждая деталь продумана для вашего комфорта и удовольствия.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Наше название отражает суть: SKY — бескрайний вид на город с высоты, BAKU — дух азербайджанской кухни и восточного гостеприимства. Мы создаём атмосферу, где традиции встречаются с современностью.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Азербайджанская и грузинская кухня, авторские стейки, панорамный вид на ночной Бишкек — всё, чтобы ваш вечер прошёл безупречно.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="flex items-center gap-2"><span class="text-[#d4a853] text-2xl">🥂</span><span class="text-gray-400 text-sm">Банкеты</span></div>
+                    <div class="flex items-center gap-2"><span class="text-[#d4a853] text-2xl">💍</span><span class="text-gray-400 text-sm">Свадьбы</span></div>
+                    <div class="flex items-center gap-2"><span class="text-[#d4a853] text-2xl">📋</span><span class="text-gray-400 text-sm">Конференции</span></div>
+                    <div class="flex items-center gap-2"><span class="text-[#d4a853] text-2xl">🎉</span><span class="text-gray-400 text-sm">Торжества</span></div>
+                </div>
+            </div>
+            <div class="reveal reveal-delay-3">
+                <div class="relative">
+                    <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-[#2d1810] to-[#1a0f0a] border border-[#d4a853]/20 flex items-center justify-center overflow-hidden">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🌃</div>
+                            <p class="text-[#d4a853] text-lg font-display tracking-wider">6 этаж</p>
+                            <p class="text-gray-400 mt-2">Панорамный вид на Бишкек</p>
+                            <div class="gold-line-wide mt-4"></div>
+                            <p class="text-gray-500 text-sm mt-4">ТРБЦ ЕВРАЗИЯ · Киевская 62</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-4" style="background: #0f0806;">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <h2 class="section-title mb-4">Почему выбирают нас</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card reveal reveal-delay-1 text-center">
+                <div class="text-4xl mb-4">🌃</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">Панорамный вид</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">6 этаж с панорамным видом на весь Бишкек. Вечерний город за окном создаёт романтику и атмосферу.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2 text-center">
+                <div class="text-4xl mb-4">👨‍🍳</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">Шеф-повар</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Авторские блюда от шеф-повара. Традиционные рецепты с современной подачей.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3 text-center">
+                <div class="text-4xl mb-4">🍖</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">Стейки и мясо</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Стейк-хаус уровня. Сочные мясные деликатесы, приготовленные на открытом огне.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-1 text-center">
+                <div class="text-4xl mb-4">🥟</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">Хинкали и хачапури</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Аутентичная грузинская кухня: хинкали ручной лепки, хачапури по-аджарски.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2 text-center">
+                <div class="text-4xl mb-4">🍆</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">Баклажаны</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Фирменные баклажаны в кисло-сладком соусе — визитная карточка заведения.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3 text-center">
+                <div class="text-4xl mb-4">🌙</div>
+                <h3 class="text-[#d4a853] text-lg font-display tracking-wider mb-3">До утра</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Работаем до 6 утра. Идеально для вечерних посиделок, ночных банкетов и after-party.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="menu" class="py-20 px-4" style="background: linear-gradient(180deg, #0f0806 0%, #1a0f0a 50%, #0f0806 100%);">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <p class="text-center text-[#d4a853] text-sm tracking-[0.3em] uppercase mb-2">Наше меню</p>
+            <h2 class="section-title mb-4">Избранные блюда</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 max-w-3xl mx-auto">
+            <div class="bg-[#1a0f0a]/80 border border-[#d4a853]/15 rounded-2xl p-6 md:p-8 reveal">
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-6 text-center">✦ Грузинская кухня ✦</h3>
+                <div class="space-y-0 divide-y divide-[#d4a853]/10">
+                    <div class="menu-item"><span class="text-gray-200">Хинкали ручной лепки</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Хачапури по-аджарски</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Хачапури по-мегрельски</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Чахохбили</span><span class="text-[#d4a853]">—</span></div>
+                </div>
+            </div>
+            <div class="bg-[#1a0f0a]/80 border border-[#d4a853]/15 rounded-2xl p-6 md:p-8 mt-6 reveal">
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-6 text-center">✦ Азербайджанская кухня ✦</h3>
+                <div class="space-y-0 divide-y divide-[#d4a853]/10">
+                    <div class="menu-item"><span class="text-gray-200">Баклажаны в кисло-сладком соусе</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Долма</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Люля-кебаб</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Плов с бараниной</span><span class="text-[#d4a853]">—</span></div>
+                </div>
+            </div>
+            <div class="bg-[#1a0f0a]/80 border border-[#d4a853]/15 rounded-2xl p-6 md:p-8 mt-6 reveal">
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-6 text-center">✦ Стейки ✦</h3>
+                <div class="space-y-0 divide-y divide-[#d4a853]/10">
+                    <div class="menu-item"><span class="text-gray-200">Рибай</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Стриплойн</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Филе миньон</span><span class="text-[#d4a853]">—</span></div>
+                    <div class="menu-item"><span class="text-gray-200">Томагавк</span><span class="text-[#d4a853]">—</span></div>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-sm mt-6 reveal reveal-delay-2">
+                Полное меню уточняйте по телефону. Готовим индивидуальное предложение для вашего мероприятия.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="events" class="py-20 px-4" style="background: #0f0806;">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <h2 class="section-title mb-4">Мероприятия</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+            <div class="feature-card reveal reveal-delay-1 text-center p-8">
+                <div class="text-6xl mb-6">💒</div>
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-3">Свадьбы</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Идеальное место для самого важного дня. Романтическая атмосфера, банкетное меню и вид на ночной город.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2 text-center p-8">
+                <div class="text-6xl mb-6">💼</div>
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-3">Конференции</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Просторный зал, удобная рассадка, полный catering. Всё для деловых мероприятий и семинаров.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3 text-center p-8">
+                <div class="text-6xl mb-6">🎂</div>
+                <h3 class="text-[#d4a853] text-xl font-display tracking-wider mb-3">Банкеты</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Дни рождения, юбилеи, корпоративы. Индивидуальное меню, праздничная сервировка, живая музыка.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews" class="py-20 px-4" style="background: linear-gradient(180deg, #0f0806 0%, #1a0f0a 50%, #0f0806 100%);">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <p class="text-center text-[#d4a853] text-sm tracking-[0.3em] uppercase mb-2">Наши гости</p>
+            <h2 class="section-title mb-4">Отзывы</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="review-card reveal reveal-delay-1">
+                <p class="text-gray-300 leading-relaxed text-sm italic">"Amazing rooftop view, amazing food and cocktails. Service a bit slow, but the atmosphere and taste are worth it."</p>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    <span class="text-gray-500 text-xs ml-2">— Elliot Gooley, Google Maps</span>
+                </div>
+            </div>
+            <div class="review-card reveal reveal-delay-2">
+                <p class="text-gray-300 leading-relaxed text-sm italic">"Весело, хорошая кухня. Отличное место для вечера с друзьями — вид на город просто потрясающий."</p>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    <span class="text-gray-500 text-xs ml-2">— Антонина Рунец, Yandex Maps</span>
+                </div>
+            </div>
+            <div class="review-card reveal reveal-delay-3">
+                <p class="text-gray-300 leading-relaxed text-sm italic">"Еда на высшем уровне. Абсолютно всё понравилось. Хинкали и хачапури — лучшие в городе."</p>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    <span class="text-gray-500 text-xs ml-2">— Гость 2ГИС</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="booking" class="py-20 px-4" style="background: #0f0806;">
+    <div class="max-w-4xl mx-auto">
+        <div class="reveal">
+            <h2 class="section-title mb-4">Забронировать</h2>
+            <div class="gold-line-wide"></div>
+            <p class="text-center text-gray-400 mt-4">Заполните форму, и мы свяжемся с вами для подтверждения</p>
+        </div>
+        <form class="mt-10 max-w-lg mx-auto space-y-5 reveal reveal-delay-1" onsubmit="event.preventDefault(); document.getElementById('bookingSuccess').classList.remove('hidden'); this.reset();">
+            <input type="text" placeholder="Ваше имя" required class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors">
+            <input type="tel" placeholder="Номер телефона" required class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors">
+            <div class="grid grid-cols-2 gap-4">
+                <input type="date" required class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors [color-scheme:dark]">
+                <input type="time" required class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors [color-scheme:dark]">
+            </div>
+            <input type="number" placeholder="Количество гостей" min="1" required class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors">
+            <select class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-400 focus:outline-none focus:border-[#d4a853]/50 transition-colors">
+                <option value="">Тип мероприятия</option>
+                <option>Свадьба</option>
+                <option>Банкет</option>
+                <option>Конференция</option>
+                <option>День рождения</option>
+                <option>Другое</option>
+            </select>
+            <textarea placeholder="Комментарий (необязательно)" rows="3" class="w-full px-5 py-3 bg-[#1a0f0a] border border-[#d4a853]/20 rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-[#d4a853]/50 transition-colors"></textarea>
+            <button type="submit" class="btn-gold w-full py-3 rounded-xl text-lg tracking-wider">Отправить заявку</button>
+            <div id="bookingSuccess" class="hidden text-center text-[#4ade80] py-4 bg-[#1a0f0a] border border-[#4ade80]/20 rounded-xl">
+                ✓ Спасибо! Мы свяжемся с вами в ближайшее время.
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="contact" class="py-20 px-4" style="background: linear-gradient(180deg, #0f0806 0%, #1a0f0a 50%, #0f0806 100%);">
+    <div class="max-w-6xl mx-auto">
+        <div class="reveal">
+            <h2 class="section-title mb-4">Контакты</h2>
+            <div class="gold-line-wide"></div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-10 items-start">
+            <div class="space-y-6 reveal reveal-delay-1">
+                <div class="flex items-start gap-4">
+                    <span class="text-[#d4a853] text-xl">🗺️</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">Адрес</p>
+                        <p class="text-gray-400">ТРБЦ ЕВРАЗИЯ, Киевская ул., 62, 6 этаж, Бишкек</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="text-[#d4a853] text-xl">📲</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">Телефоны</p>
+                        <p class="text-gray-400">+996 550 996 996</p>
+                        <p class="text-gray-400">+996 558 39 81 68</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="text-[#d4a853] text-xl">⏰</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">Часы работы</p>
+                        <p class="text-gray-400">Ежедневно: 16:00 – 06:00</p>
+                        <p class="text-gray-500 text-sm mt-1" id="statusIndicator">⚪ Проверка...</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="text-[#d4a853] text-xl">📸</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">Instagram</p>
+                        <a href="https://www.instagram.com/sky.baku.restobar.kg/" target="_blank" class="insta-link">@sky.baku.restobar.kg ↗</a>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <a href="tel:+996550996996" class="btn-gold px-6 py-2.5 rounded-full text-sm tracking-wider">📞 Позвонить</a>
+                    <a href="https://wa.me/996550996996" target="_blank" class="btn-gold px-6 py-2.5 rounded-full text-sm tracking-wider" style="background: linear-gradient(135deg, #25D366, #128C7E);">💬 WhatsApp</a>
+                    <a href="#booking" class="btn-outline-gold px-6 py-2.5 rounded-full text-sm tracking-wider">📅 Забронировать</a>
+                    <a href="https://maps.google.com/?q=EURASIA+Kievskaya+62+Bishkek" target="_blank" class="btn-outline-gold px-6 py-2.5 rounded-full text-sm tracking-wider">🗺️ Маршрут</a>
+                </div>
+            </div>
+            <div class="reveal reveal-delay-3">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.8!2d74.6119!3d42.8741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1sru!2skg!4v1"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 px-4 border-t border-[#d4a853]/10" style="background: #0a0604;">
+    <div class="max-w-6xl mx-auto text-center">
+        <p class="text-[#d4a853] text-2xl font-display tracking-[0.2em] mb-4">SKY BAKU</p>
+        <div class="gold-line-wide"></div>
+        <p class="text-gray-600 text-sm mt-4">ТРБЦ ЕВРАЗИЯ, Киевская 62, 6 этаж · Бишкек · +996 550 996 996</p>
+        <p class="text-gray-600 text-sm">Ежедневно 16:00 – 06:00</p>
+        <p class="text-gray-700 text-xs mt-4">Сайт разработан <a href="https://fountaine.ai" target="_blank" class="text-gray-600 hover:text-[#d4a853] transition-colors">Fountaine AI Studio</a></p>
+        <p class="text-gray-700 text-xs mt-2">© 2026 SKY BAKU. Все права защищены.</p>
+    </div>
+</footer>
+
+<div class="mobile-cta" id="mobileCta">
+    <a href="https://wa.me/996550996996" target="_blank" class="flex-1 py-2.5 rounded-xl text-sm text-center tracking-wider font-semibold text-white" style="background: linear-gradient(135deg, #25D366, #128C7E);">💬 WhatsApp</a>
+    <a href="tel:+996550996996" class="btn-gold flex-1 py-2.5 rounded-xl text-sm text-center tracking-wider">📞 Позвонить</a>
+    <a href="#booking" class="btn-outline-gold flex-1 py-2.5 rounded-xl text-sm text-center tracking-wider">📅 Забронировать</a>
+</div>
+
 <script>
-var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){if(window.scrollY>60)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
-var burger=document.getElementById('burger'),overlay=document.getElementById('mobileOverlay');
-burger.addEventListener('click',function(){burger.classList.toggle('active');overlay.classList.toggle('open');document.body.style.overflow=overlay.classList.contains('open')?'hidden':'';});
-document.querySelectorAll('.mobile-link').forEach(function(l){l.addEventListener('click',function(){burger.classList.remove('active');overlay.classList.remove('open');document.body.style.overflow='';});});
-var obs=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(function(e){obs.observe(e);});
-var tabs=document.querySelectorAll('.menu-tab'),items=document.querySelectorAll('.menu-item');
-tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('active');});t.classList.add('active');var c=t.dataset.tab;items.forEach(function(i){i.style.display=i.dataset.cat===c?'':'none';});});});
-tabs[0].click();
-var track=document.getElementById('reviewsTrack'),dots=document.querySelectorAll('.review-dot'),cur=0,tot=dots.length;
-function go(n){cur=n;track.style.transform='translateX(-'+(n*100)+'%)';dots.forEach(function(d){d.classList.remove('active');});dots[n].classList.add('active');}
-dots.forEach(function(d){d.addEventListener('click',function(){go(parseInt(d.dataset.index));});});
-setInterval(function(){go((cur+1)%tot);},5000);
-var form=document.getElementById('bookingForm'),success=document.getElementById('bookingSuccess');
-form.addEventListener('submit',function(e){e.preventDefault();success.classList.add('show');form.querySelector('.btn-submit').style.display='none';form.querySelectorAll('.form-group').forEach(function(g){g.style.display='none';});});
-function updateStatus(){var now=new Date();var h=now.getHours();var isOpen=(h>=16||h<6);var badge=document.getElementById('statusBadge');var text=document.getElementById('statusText');if(isOpen){badge.classList.add('open');badge.classList.remove('closed');text.textContent='Сейчас открыто · до 06:00';}else{badge.classList.add('closed');badge.classList.remove('open');text.textContent='Сейчас закрыто · откроем в 16:00';}}
-updateStatus();setInterval(updateStatus,60000);
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    document.getElementById('menuToggle').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(a => {
+        a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 6 + 's';
+        p.style.animationDuration = (5 + Math.random() * 4) + 's';
+        p.style.width = (1.5 + Math.random() * 2.5) + 'px';
+        p.style.height = p.style.width;
+        particlesContainer.appendChild(p);
+    }
+
+    function updateStatus() {
+        const now = new Date();
+        const hours = now.getHours();
+        const mins = now.getMinutes();
+        const total = hours * 60 + mins;
+        const el = document.getElementById('statusIndicator');
+        // Open from 16:00 (960) to 06:00 next day (360)
+        const isOpen = (total >= 960 || total < 360);
+        if (isOpen) {
+            el.innerHTML = '🟢 Открыто сейчас · до 06:00';
+            el.className = 'text-[#4ade80] text-sm mt-1';
+        } else {
+            el.innerHTML = '🔴 Закрыто сейчас · Открываем в 16:00';
+            el.className = 'text-red-400 text-sm mt-1';
+        }
+    }
+    updateStatus();
+    setInterval(updateStatus, 60000);
 </script>
 </body>
 </html>
